@@ -7,5 +7,6 @@
 
 ## 🔧 Tecnologías  
 - **Lenguajes**: PHP, Java, JavaScript  
-- **Middleware**: RabbitMQ  
+- **Middleware**: RabbitMQ
+![image](https://github.com/user-attachments/assets/62a62e42-5907-429d-9452-dc6167c238f5)
 - **Entorno**: Contenedores Docker 
