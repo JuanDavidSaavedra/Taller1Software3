@@ -1,0 +1,90 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.13.7-management
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rabbitmq_net
+
+  consumer_java:
+    build: ./consumer_java
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  consumer_node:
+    build: ./consumer_node
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  publisher_java:
+    build: ./publisher_java
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  publisher_node:
+    build: ./publisher_node
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  consumer_python:
+    build: ./consumer_python
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  publisher_python:
+    build: ./publisher_python
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  publisher_php:
+    build: ./publisher_php
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  consumer_php:
+    build: ./consumer_php
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: always
+    networks:
+      - rabbitmq_net
+
+networks:
+  rabbitmq_net:
+    driver: bridge

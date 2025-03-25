@@ -1,0 +1,66 @@
+version: '3'
+services:
+  # Servicio para el Publisher Java
+  publisher2_java:
+    build: ./publisher2_java
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Consumer Java
+  consumer2_java:
+    build: ./consumer2_java
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Publisher Node.js
+  publisher2_node:
+    build: ./publisher2_node
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Consumer Node.js
+  consumer2_node:
+    build: ./consumer2_node
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Publisher PHP
+  publisher2_php:
+    build: ./publisher2_php
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Consumer PHP
+  consumer2_php:
+    build: ./consumer2_php
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+# Red para conectar los servicios
+networks:
+  rabbitmq_net:
+    driver: bridge

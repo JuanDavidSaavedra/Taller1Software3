@@ -1,0 +1,12 @@
+{
+  "name": "consumer2_node",
+  "version": "1.0.0",
+  "description": "Consumer Node.js para RabbitMQ",
+  "main": "Consumer2.js",
+  "scripts": {
+    "start": "node Consumer2.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0"
+  }
+}

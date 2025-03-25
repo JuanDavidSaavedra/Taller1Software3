@@ -1,0 +1,36 @@
+version: '3'
+services:
+  # Servicio para el Publisher Java
+  publisher3_java:
+    build: ./publisher3_java
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Publisher Node.js
+  publisher3_node:
+    build: ./publisher3_node
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Publisher PHP
+  publisher3_php:
+    build: ./publisher3_php
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+# Red para conectar los servicios
+networks:
+  rabbitmq_net:
+    driver: bridge
