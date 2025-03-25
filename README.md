@@ -16,3 +16,6 @@
 - ✅ **6 contenedores**: 3 productores + 3 consumidores (uno por lenguaje).
 - ✅ **Comunicación vía colas**, con salida por consola.
 - ✅ Uso de **variables de entorno** para configuración dinámica.
+
+## 📽️ Demostración & ejecucción en Video de cada versión
+Youtube
