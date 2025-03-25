@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  # Servicio para el Consumer Java
+  consumer3_java:
+    build: ./consumer3_java
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+
+  # Servicio para el Consumer Node.js
+  consumer3_node:
+    build: ./consumer3_node
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+  # Servicio para el Consumer PHP
+  consumer3_php:
+    build: ./consumer3_php
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}  # Valor predeterminado: 'rabbitmq'
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}      # Valor predeterminado: 5672
+    restart: always
+    networks:
+      - rabbitmq_net
+
+# Red para conectar los servicios
+networks:
+  rabbitmq_net:
+    driver: bridge
