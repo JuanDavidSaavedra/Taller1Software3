@@ -18,4 +18,4 @@
 - ✅ Uso de **variables de entorno** para configuración dinámica.
 
 ## 📽️ Demostración & ejecucción en Video de cada versión
-[Youtube](https://www.youtube.com/watch?v=KvYHccsxUxY)
+[Taller Publish-Subscribe](https://www.youtube.com/watch?v=KvYHccsxUxY)
