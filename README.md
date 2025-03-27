@@ -29,15 +29,21 @@ services:
 ```
 
 Después de hacer estas modificaciones, ejecutamos el compose con el siguiente comando:
+```yaml
 docker-compose up --build
+```
 
 Versión 2: en este caso, no hace falta modificar el yml, ya que los puertos se van a especificar directamente en el comando para ejecutar, por ejemplo:
+```yaml
 RABBITMQ_HOST = 10.6.101.97 RABBITMQ_PORT = 5674 docker-compose up --build
+```
 
 El Host y puerto especificado del RabbitMQ anterior es de nuestra tercera máquina virtual. Los publicadores y consumidores van a estar en una misma máquina virtual, diferente de la que está el RabbitMQ.
 
 Versión 3: Al igual que la versión 2, no hace falta modificar el yml, sólo que este código hay que colocarlo en 2 máquinas, una que tiene los publicadores y otra donde están los consumidores, por ejemplo:
+```yaml
 RABBITMQ_HOST = 10.6.101.97 RABBITMQ_PORT = 5674 docker-compose up --build
+```
 
 El Host y puerto especificado del RabbitMQ anterior es de nuestra tercera máquina virtual. 
 
