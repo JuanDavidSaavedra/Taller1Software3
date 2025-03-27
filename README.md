@@ -19,7 +19,7 @@
 
 ## Pasos para la ejecucción:
 Versión 1: entramos al archivo docker-compose.yml y en lo siguiente modificamos los puertos de tu RabbitMQ, por ejemplo, mis puertos son:
-services:
+-services:
   rabbitmq:
     image: rabbitmq:3.13.7-management
     ports:
